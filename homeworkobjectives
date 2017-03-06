@@ -1,0 +1,47 @@
+Create an application that finds some interesting data about a given GitHub user.
+Your application should accept a username and API key as arguments on the command line.
+ You can use process.argv to get any data provided on the command line.
+ For example, I should be able to run your application using:
+
+node yourfile.js jakerella 12345myapikey67890
+
+In your application, you can access the username within the process.argv array
+like so: process.argv[2] and the key like this: process.argv[3]
+
+This would let me see the GitHub info for that user (note that that is not my
+actual API key, or even what they look like).
+
+The application you create will need to make a few API requests to retrieve data
+ and display some results. You will be using the GitHub API for this assignment.
+ There are links to the specific API endpoints required below, but feel free to
+ explore the rest of the API documentation (it's quite large).
+
+
+
+***Your application should accept a username and API key as arguments on the command line.
+    can use process.argv to get any data provided on the command line.
+
+    The application you create will need to make a few API requests to retrieve data
+     and display some results.
+
+NOTE: You MUST use an API key in the headers for ALL requests. You can create
+ a token on the settings page in GitHub. You should pass that token into your
+ application on the command line, then you can use it in your application's fetch requests.
+
+The Data
+For the given username (see above) your application should log out:
+
+Their actual name and location (if specified)
+  Use the /users/:username endpoint
+
+List the repo they own with the most stars ("stargazers_count")
+  Use the /users/:username/repos endpoint
+
+For the repo they own with the most stars, find the contributor with
+  the second most contributions.
+    Use the /repos/:owner/:repo/contributors endpoint
+
+
+Error Handling
+  You should always have it. In other words, you must have code that handles when
+  something goes wrong! Remember: there is more than one way things can go wrong.
