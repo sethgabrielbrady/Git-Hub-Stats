@@ -1,0 +1,6 @@
+{
+  "name": "github-data-homework",
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  }
+}
