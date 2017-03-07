@@ -36,7 +36,7 @@ let promise2 = fetch(
     {
         method: 'GET',
         headers: {
-            Authorization: 'token ' + process.argv[3] //PERSONAL access github token
+            Authorization: 'token ' + process.argv[3]
         }
     }
 );
@@ -45,8 +45,8 @@ let starCount = {
     name: "something",
     count: 0
 };
-let contributorId = [];
 let i = 0;
+contributorLogin= [];
 
 /******************************Iterates Through the star count************************************/
 promise2.then(function handleResponse(responseObj) {
@@ -62,7 +62,7 @@ promise2.then(function handleResponse(responseObj) {
                 }
 
 
-                /*********iterates through the contributors ******************************/
+/*********iterates through the login names of the contributors while iterating through the star count***************************/
 
                 let promise3 = fetch(
                     'https://api.github.com/repos/' + process.argv[2] + '/' + each.name + '/contributors', //cycles though user names
@@ -82,25 +82,25 @@ promise2.then(function handleResponse(responseObj) {
                                 i++;
                                 let contributorName = contributorData[0].login;
                                 console.log('CONTRIBUTOR ' + i + ':', contributorName);
-                                contributorId.push(contributorName);
+                                contributorLogin.push(contributorName);//why doesnt this push seem to work?
+
                             }
                             // console.log(contributorData[0].login);
                         });
                     } else {
                         console.log('ERROR-', responseObj.status);
                     }
-                });
 
-                /******************************************************************************/
+                });
+                  // console.log(contributorLogin);//logging the array outside doesnt work...why? 
+/******************************************************************************/
 
             });
-            // console.log('CONTRIBUTORS:', contributorId);
-            console.log('REPO NAME: ', starCount.name);
+            console.log('REPO WITH MOST STARS: ', starCount.name);
             console.log('STAR COUNT: ', starCount.count);
-            // repoName = starCount.name;
         });
     } else {
-        console.log('ERROR-', responseObj.status); //error condition
+        console.log('ERROR-', responseObj.status);
     }
 
 });
