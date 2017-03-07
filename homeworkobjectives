@@ -45,3 +45,21 @@ For the repo they own with the most stars, find the contributor with
 Error Handling
   You should always have it. In other words, you must have code that handles when
   something goes wrong! Remember: there is more than one way things can go wrong.
+
+
+HOMEWORK REVIEW NOTES
+**********************************************************************
+
+
+DID not need to include node modules inside the github repo
+we are always going to want a gitignore file inside the directory
+
+
+
+
+
+
+
+
+
+******************************************************************
